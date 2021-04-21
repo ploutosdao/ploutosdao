@@ -4,11 +4,10 @@ import './App.css';
 import DepositPanel from './components/deposit/deposit';
 import Header from './components/header/header';
 import Sidebar from './components/sidebar/sidebar';
-import { useWallet, UseWalletProvider } from 'use-wallet'
+import { useWallet, UseWalletProvider } from 'use-wallet';
 
 function AppInner() {
-  const wallet = useWallet()
-  const _blockNumber = wallet.getBlockNumber()
+  const wallet = useWallet();
 
   return (
     <>
