@@ -80,7 +80,7 @@ function AppInner() {
 
 function App() {
   return (
-    <UseWalletProvider chainId={1337}>
+    <UseWalletProvider chainId={1}>
       <AppInner />
     </UseWalletProvider>
   )

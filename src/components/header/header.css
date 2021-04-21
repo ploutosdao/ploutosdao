@@ -1,5 +1,6 @@
 .buttonbg {
   background: rgb(73,40,96,0.5);
+  backdrop-filter: blur(6px);
   color: white;
 }
 .buttonbg:hover {
