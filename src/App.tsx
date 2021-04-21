@@ -1,5 +1,4 @@
-import React from 'react';
-import { Card, CardColumns, Col, Container, Row } from 'react-bootstrap';
+import { CardColumns, Col, Container, Row } from 'react-bootstrap';
 import Particles from "react-tsparticles";
 import './App.css';
 import DepositPanel from './components/deposit/deposit';

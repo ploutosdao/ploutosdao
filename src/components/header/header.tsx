@@ -1,6 +1,5 @@
-import React from "react";
 import "./header.css"
-import { Button, Nav, Navbar } from "react-bootstrap";
+import { Nav, Navbar } from "react-bootstrap";
 import { Wallet } from "use-wallet";
 import {AiFillWallet, AiOutlineWallet} from 'react-icons/ai';
 import { GiBigGear } from "react-icons/gi"
