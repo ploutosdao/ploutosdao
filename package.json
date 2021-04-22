@@ -4,6 +4,7 @@
   "license": "BSD",
   "homepage": "./",
   "dependencies": {
+    "@types/react-router-dom": "^5.1.7",
     "bootstrap": "^4.6.0",
     "bootswatch": "^4.6.0",
     "ethereum-waffle": "^3.3.0",
@@ -12,6 +13,8 @@
     "react-bootstrap": "^1.5.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.2.0",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "react-tsparticles": "^1.26.4",
     "use-wallet": "^0.8.1",

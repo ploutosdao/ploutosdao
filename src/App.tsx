@@ -5,6 +5,10 @@ import DepositPanel from './components/deposit/deposit';
 import Header from './components/header/header';
 import Sidebar from './components/sidebar/sidebar';
 import { useWallet, UseWalletProvider } from 'use-wallet';
+import React from 'react';
+import { Route } from 'react-router';
+import About from './components/about/about';
+import Governance from './components/governance/governance';
 
 function AppInner() {
   const wallet = useWallet();
@@ -38,7 +42,7 @@ function AppInner() {
               enable: true,
             },
             move: {
-              enable: true,
+              enable: false,
               speed: 6,
               outMode: "out"
             },
@@ -67,10 +71,10 @@ function AppInner() {
           <Col sm={2}>
             <Sidebar />
           </Col>
-          <Col sm={10}>
-            <CardColumns>
-              <DepositPanel />              
-            </CardColumns >
+          <Col sm={10} className="w-100">            
+            <Route path="/home"><DepositPanel /></Route>
+            <Route path="/governance"><Governance /></Route>
+            <Route path="/about"><About /></Route>            
           </Col>
         </Row>
       </Container>
@@ -79,8 +83,17 @@ function AppInner() {
 }
 
 function App() {
+  /*
+  chain
+Mainnet: 1 or mainnet
+Ropsten: 3 or ropsten
+Rinkeby: 4 or rinkeby
+Görli: 5 or görli or goerli
+Kovan: 42 or mainnet
+hardhat: 1337
+  */
   return (
-    <UseWalletProvider chainId={1}>
+    <UseWalletProvider chainId={1337}>
       <AppInner />
     </UseWalletProvider>
   )
