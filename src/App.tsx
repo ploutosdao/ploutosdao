@@ -1,11 +1,10 @@
-import { CardColumns, Col, Container, Row } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
 import Particles from "react-tsparticles";
 import './App.css';
 import DepositPanel from './components/deposit/deposit';
 import Header from './components/header/header';
 import Sidebar from './components/sidebar/sidebar';
 import { useWallet, UseWalletProvider } from 'use-wallet';
-import React from 'react';
 import { Route } from 'react-router';
 import About from './components/about/about';
 import Governance from './components/governance/governance';
