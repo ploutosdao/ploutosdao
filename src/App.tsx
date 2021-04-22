@@ -5,9 +5,10 @@ import DepositPanel from './components/deposit/deposit';
 import Header from './components/header/header';
 import Sidebar from './components/sidebar/sidebar';
 import { useWallet, UseWalletProvider } from 'use-wallet';
-import { Route } from 'react-router';
+import { Redirect, Route } from 'react-router';
 import About from './components/about/about';
 import Governance from './components/governance/governance';
+import React from 'react';
 
 function AppInner() {
   const wallet = useWallet();
@@ -70,7 +71,10 @@ function AppInner() {
           <Col sm={2}>
             <Sidebar />
           </Col>
-          <Col sm={10} className="w-100">            
+          <Col sm={10} className="w-100">
+            <Route exact path="/">
+              <Redirect to="/home" />
+            </Route>
             <Route path="/home"><DepositPanel /></Route>
             <Route path="/governance"><Governance /></Route>
             <Route path="/about"><About /></Route>            
