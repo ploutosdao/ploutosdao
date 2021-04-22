@@ -96,7 +96,7 @@ Kovan: 42 or mainnet
 hardhat: 1337
   */
   return (
-    <UseWalletProvider chainId={1337}>
+    <UseWalletProvider chainId={1}>
       <AppInner />
     </UseWalletProvider>
   )
