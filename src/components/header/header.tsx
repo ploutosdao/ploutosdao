@@ -1,15 +1,12 @@
 import "./header.css"
 import { Nav, Navbar } from "react-bootstrap";
-import { Wallet } from "use-wallet";
+import { useWallet, Wallet } from "use-wallet";
 import {AiFillWallet, AiOutlineWallet} from 'react-icons/ai';
 import { GiBigGear } from "react-icons/gi"
 
-interface HeaderProps<T> {
-  wallet: Wallet<T>
-}
 
-function Header<T>({wallet}: HeaderProps<T>) {
-  
+function Header<T>() {
+  const wallet = useWallet();
   return (
     <Navbar>
       <Navbar.Brand>{' '}</Navbar.Brand>
@@ -18,14 +15,14 @@ function Header<T>({wallet}: HeaderProps<T>) {
         <Nav>
           <Nav.Item>
             {wallet.status === 'connected' ? (
-              <Nav.Link eventKey="walletconnect"  className="buttonbg rounded text-white" onClick={() => wallet.reset()}>{wallet.account?.substring(0, 8)}{'... '}<AiFillWallet /></Nav.Link>
+              <Nav.Link eventKey="walletconnect"  className="buttonbg rounded" onClick={() => wallet.reset()}>{wallet.account?.substring(0, 8)}{'... '}<AiFillWallet /></Nav.Link>
             ) : (
-              <Nav.Link eventKey="walletconnect"  className="buttonbg rounded text-white" onClick={() => wallet.connect('provided')}><AiOutlineWallet /></Nav.Link>
+              <Nav.Link eventKey="walletconnect"  className="buttonbg rounded" onClick={() => wallet.connect('provided')}><AiOutlineWallet /></Nav.Link>
             )}
           </Nav.Item>
           <Nav.Item><Nav.Link>{' '}</Nav.Link></Nav.Item>
           <Nav.Item>
-            <Nav.Link eventKey="settings" className="buttonbg rounded text-white"><GiBigGear />{' '}</Nav.Link>
+            <Nav.Link eventKey="settings" className="buttonbg rounded"><GiBigGear />{' '}</Nav.Link>
           </Nav.Item>
         </Nav>
       </Navbar.Collapse>

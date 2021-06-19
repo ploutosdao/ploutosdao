@@ -1,11 +1,14 @@
 import { config as dotEnvConfig } from "dotenv";
 dotEnvConfig();
 
-import { HardhatUserConfig } from "hardhat/types";
-
 import "@nomiclabs/hardhat-waffle";
 import "@typechain/hardhat";
+import "@nomiclabs/hardhat-ethers";
 import "@nomiclabs/hardhat-etherscan";
+// import "hardhat-deploy";
+import "@typechain/ethers-v5";
+import { HardhatUserConfig } from "hardhat/types";
+
 // TODO: reenable solidity-coverage when it works
 // import "solidity-coverage";
 
@@ -18,11 +21,24 @@ const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY;
 const config: HardhatUserConfig = {
   defaultNetwork: "hardhat",
   solidity: {
-    compilers: [{ version: "0.8.3", settings: {} }],
+    compilers: [
+      { version: "0.5.16", settings: {} },
+      { version: "0.8.4", settings: {} },
+    ],
+  },
+  paths: {
+    artifacts: "./artifacts",
+  },
+  typechain: {
+    outDir: "src/typechain",
+    target: "ethers-v5",
   },
   networks: {
     hardhat: {
-      chainId: 1337
+      chainId: 1337,
+      allowUnlimitedContractSize: true,
+      blockGasLimit: 100000000,
+      gas: 100000000
     },
     localhost: {},
     rinkeby: {
